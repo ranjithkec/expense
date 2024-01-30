@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
-const port = 3000
+const port = process.env.PORT
 const Expense = require('./models/expense')
 mongoose.connect('mongodb+srv://ranjith:ranjith@cluster0.jgmk84t.mongodb.net/?retryWrites=true&w=majority',{
     useUnifiedTopology: true
@@ -49,7 +49,6 @@ app.put('/expense/:id', async(req,res) => {
         res.send(updatedObject);
 })
 
-const port = process.env,port || 8000
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
